@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="Css/template.css"/>
+</head>
+<body>
+
+<button class="banner-button" onclick="window.history.back()"><img src="AltImage/CMlogo.png" width="60" height="60"></button>
+<!-- General Information Module  -->
+<div id="generalInformation">
+    <h1>General Information</h1>
+    <label for="Name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" required>
+    <list class="form-checkbox" required>
+    <ul><input type="checkbox" id="option1" name="option1" value="Location"> 
+    <label for="option1">In-Person Event</label><br></ul>
+    <ul><input type="checkbox" id="option2" name="option2" value="Online">
+    <label for="option2">Virtual Event</label><br></ul>
+    </list>
+    <label for="location"><b>Event Location</b></label> 
+    <input type="text" placeholder="Location Details" name="local" required>
+   
+    <div>
+      <label for="department"><b>Department working on Report</b></label>
+      <input type="text" id="departList" name="departList" placeholder="Department"/>
+    </div>
+</div>
+
+<!-- Benefit Information -->
+<div>
+  <h1>Benefit Information</h1>
+  <label for="Name"><b>Name</b></label>
+  <input type="text" placeholder="Enter Benefit Category" name="name">
+  <!-- <li><button class="openbutton" onclick="openImpact()"></button></li>
+  <button type="button" class="btn cancel" onclick="closeImpact()">Close</button>
+  <script>
+    function openImpact() {
+  document.getElementById("impactInformation").style.display = "block";
+}
+function closeImpact() {
+  document.getElementById("impactInformation").style.display = "none";
+}
+  </script> --> 
+</div>
+</div>
+
+  <!-- This is The Staff and Volunteers Information -->
+<div id="Roletablediv">
+  <h1>Staff and Volunteers</h1>
+    <table id="RoleTable" border="1">
+        <thead>
+            <tr>
+              <td>#</td>
+              <td>First Name</td>
+              <td>Last Name</td>
+              <td>Department</td>
+              <td>Position</td>
+              <!-- <td></td>
+              <td></td>
+              <td></td> -->
+              <td>Delete</td>
+              <td>Add Rows<input type="button" id="addmorePOIbutton" value="+" onclick="insRow()"/></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>1</td>
+              <td><input type="text" id="firstname"/></td>
+              <td><input type="text" id="lastname"/></td>
+              <td><input type="text" id="Department"></td>
+              <td><select name="Position-Roles" id="roles">
+                <option value="Staff">Staff</option> <option value="Volunteer">Volunteer</option> <option value="Hired-On Help">Hired Help</option> <option value="Medical Student">Medical Student</option>
+              </select></td>
+              <td><input type="button" id="delPOIbutton" value="Delete" onclick="deleteRow(this)"/></td>
+              <td><input type="button" id="addmorePOIbutton" value="Add A Row" onclick="insRow()"/></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- Expenses List -->
+<div class="container"> 
+  <h1>Expense Tracker</h1> 
+  <form id="expense-form"> 
+      <input type="text" 
+             id="expense-name" 
+             placeholder="Expense Name" required /> 
+      <input type="number" 
+             id="expense-amount" 
+             placeholder="Amount" required /> 
+      <button type="submit">Add Expense</button> 
+  </form> 
+  <div class="expense-table"> 
+      <table> 
+          <thead> 
+              <tr> 
+                  <th>Expense Name</th> 
+                  <th>Amount</th> 
+                  <th>Action</th> 
+              </tr> 
+          </thead> 
+          <tbody id="expense-list"></tbody> 
+      </table> 
+      <div class="total-amount"> 
+          <strong>Total:</strong>  
+          $<span id="total-amount">0</span> 
+      </div> 
+  </div> 
+</div> 
+
+<!-- Upload Additional Files   -->
+<div id="UploadInformationblock">
+  <h1>Additional Information</h1>
+  <div id="additionalInformation">
+      <form action="https://httpbin.org/post"  method="post" enctype="multipart/form-data">
+        <input name="file" type="file" multiple accept="image/webp, image/jpeg, image/png">
+        <button type="submit">Upload</button>
+      </form>
+      <p>
+        <strong>Uploading status:</strong>
+        <span id="statusMessage">Nothing's been uploaded</span>
+      </p>
+      <button type="submit" class="btn">Save</button>
+      <button type="button" class="btn cancel" onclick="closeAdditionalInfo()">Close</button>
+     </form>
+      <script src="Js/GuidedReport.js"></script>
+  </div>
+</div>
+
+
+
+<script>
+var table = document.getElementById('RoleTable'),
+    tbody = table.getElementsByTagName('tbody')[0],
+    clone = tbody.rows[0].cloneNode(true);
+
+function deleteRow(el) {
+    var i = el.parentNode.parentNode.rowIndex;
+    table.deleteRow(i);
+    while (table.rows[i]) {
+        updateRow(table.rows[i], i, false);
+        i++;
+    }
+}
+
+function insRow() {
+    var new_row = updateRow(clone.cloneNode(true), ++tbody.rows.length, true);
+    tbody.appendChild(new_row);
+}
+
+function updateRow(row, i, reset) {
+    row.cells[0].innerHTML = i;
+
+    var inp1 = row.cells[1].getElementsByTagName('input')[0];
+    var inp2 = row.cells[2].getElementsByTagName('input')[0];
+    inp1.id = 'latbox' + i;
+    inp2.id = 'lngbox' + i;
+
+    if (reset) {
+        inp1.value = inp2.value = '';
+    }
+    return row;
+}
+
+// Expenses Script
+// Get form, expense list, and total amount elements 
+const expenseForm = 
+    document.getElementById("expense-form"); 
+const expenseList = 
+    document.getElementById("expense-list"); 
+const totalAmountElement = 
+    document.getElementById("total-amount"); 
+  
+// Initialize expenses array from localStorage 
+let expenses =  
+    JSON.parse(localStorage.getItem("expenses")) || []; 
+  
+// Function to render expenses in tabular form 
+function renderExpenses() { 
+  
+    // Clear expense list 
+    expenseList.innerHTML = ""; 
+  
+    // Initialize total amount 
+    let totalAmount = 0; 
+  
+    // Loop through expenses array and create table rows 
+    for (let i = 0; i < expenses.length; i++) { 
+        const expense = expenses[i]; 
+        const expenseRow = document.createElement("tr"); 
+        expenseRow.innerHTML = ` 
+      <td>${expense.name}</td> 
+      <td>$${expense.amount}</td> 
+      <td class="delete-btn" data-id="${i}">Delete</td> 
+    `; 
+        expenseList.appendChild(expenseRow); 
+  
+        // Update total amount 
+        totalAmount += expense.amount; 
+    } 
+  
+    // Update total amount display 
+    totalAmountElement.textContent = 
+        totalAmount.toFixed(2); 
+  
+    // Save expenses to localStorage 
+    localStorage.setItem("expenses",  
+        JSON.stringify(expenses)); 
+} 
+  
+// Function to add expense 
+function addExpense(event) { 
+    event.preventDefault(); 
+  
+    // Get expense name and amount from form 
+    const expenseNameInput = 
+        document.getElementById("expense-name"); 
+    const expenseAmountInput = 
+        document.getElementById("expense-amount"); 
+    const expenseName = 
+        expenseNameInput.value; 
+    const expenseAmount = 
+        parseFloat(expenseAmountInput.value); 
+  
+    // Clear form inputs 
+    expenseNameInput.value = ""; 
+    expenseAmountInput.value = ""; 
+  
+    // Validate inputs 
+    if (expenseName === "" || isNaN(expenseAmount)) { 
+        alert("Please enter valid expense details."); 
+        return; 
+    } 
+  
+    // Create new expense object 
+    const expense = { 
+        name: expenseName, 
+        amount: expenseAmount, 
+    }; 
+  
+    // Add expense to expenses array 
+    expenses.push(expense); 
+  
+    // Render expenses 
+    renderExpenses(); 
+} 
+  
+// Function to delete expense 
+function deleteExpense(event) { 
+    if (event.target.classList.contains("delete-btn")) { 
+  
+        // Get expense index from data-id attribute 
+        const expenseIndex = 
+            parseInt(event.target.getAttribute("data-id")); 
+  
+        // Remove expense from expenses array 
+        expenses.splice(expenseIndex, 1); 
+  
+        // Render expenses 
+        renderExpenses(); 
+    } 
+} 
+  
+// Add event listeners 
+expenseForm.addEventListener("submit", addExpense); 
+expenseList.addEventListener("click", deleteExpense); 
+  
+// Render initial expenses on page load 
+renderExpenses();
+
+</script>
+</body>
+</html>

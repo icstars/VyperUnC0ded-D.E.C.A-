@@ -1,0 +1,38 @@
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  .banner-button {
+    text-align: center;
+    border-radius: 50px;
+    background-color: #0039f4; /* Blue*/
+    border: none;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    margin: 5px 5px;
+    cursor: pointer;
+    }
+    
+  .banner-button:hover {
+    background-color: #094276;
+     }
+
+  .banner {
+    /* Whatever width and height seems good for the card within the banner space */
+    flex: 1 1 auto;
+    background: linear-gradient(45deg,#0575e6,#00f260);
+    color: white;
+    padding: 5rem;
+    font-family: Segoe UI;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    
+    /* Explicitly specify relative position so glow::before binds to it as an absolute pseudo element */
+    position: relative;
+}

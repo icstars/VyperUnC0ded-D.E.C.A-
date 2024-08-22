@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guided Report</title>
+    <link rel="stylesheet" href="Css\GuidedReport.css">
+</head>
+<body>
+    <div class="banner">  
+      <button class="banner-button" onclick="window.history.back()"><img src="AltImage/CMlogo.png" width="60" height="60" ></button>
+    <h1>Before We Dig any deeper What is Your Impact</h1>
+    </div>
+    <a href="benefit.html">
+      <button id="goToPage">Benefit Page</button>
+    </a>
+  <!-- Buttons function On GuidedReport Page -->
+<div>
+  <ul class="formbuttons">
+    <li><button class="openbutton" onclick="openGeneralInfo()">General Information</button></li>
+    <li><button class="openbutton" onclick="openImpact()">Community Benefit Information</button></li>
+    <li><button class="openbutton" onclick="openStaff()">Staff & Volunteer Information</button></li>
+    <li><button class="openbutton" onclick="openAdditionalInfo()">Additional Attachments</button></li>
+  </ul>
+</div>
+<!-- General Information Module  -->
+<div class="form-popup" id="generalInformation">
+  <form action="Change when database is set up" class="form-container">
+    <h1>General Information</h1>
+    <label for="Name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" required>
+    <list class="form-checkbox" required>
+    <ul><input type="checkbox" id="option1" name="option1" value="Location"> 
+    <label for="option1">In-Person Event</label><br></ul>
+    <ul><input type="checkbox" id="option2" name="option2" value="Online">
+    <label for="option2">Virtual Event</label><br></ul>
+    </list>
+
+    <label for="location"><b>Event Location</b></label> 
+    <input type="text" placeholder="Location Details" name="local" required>
+
+   
+    <label for="department"><b>Department</b></label>
+    <input type="text" placeholder="Department" name="department" required>
+    <form action="Chanhe when dtabase is set uo">
+      <input list="departmentList" id="departList" name="departList"/>
+    </form>
+
+    <button type="submit" class="btn">Save</button>
+    <button type="button" class="btn cancel" onclick="closeGeneralInfo()">Close</button>
+  </form>
+
+</div>
+
+<!-- Impact Module's Information -->
+<div class="form-popup" id="impactInformation">
+ <form action="Change when database is set up">
+  <h1>Benefit Information</h1>
+<br>
+  <label for="Name"><b>Name</b></label>
+  <input type="text" placeholder="Enter Name" name="name">
+
+
+  <button type="submit" class="btn">Save</button>
+  <button type="button" class="btn cancel" onclick="closeImpact()">Close</button>
+  </form>
+</div>
+
+<!-- Staff's + Volunteers Module -->
+<div class="form-popup" id="staffInformation">
+  <form action="Change when database is set up">
+   <h1>Staff & Volunteers Information</h1>
+   <label for="Name"><b>Name</b></label>
+   <input type="text" placeholder="Enter Name" name="name">
+ 
+ 
+   <button type="submit" class="btn">Save</button>
+   <button type="button" class="btn cancel" onclick="closeStaff()">Close</button>
+   </form>
+ </div>
+
+<!-- Additional Information and Attachments Module -->
+<div class="form-popup" id="additionalInformation">
+  <input type="file">
+    <form action="https://httpbin.org/post"  method="post" enctype="multipart/form-data">
+      <input name="file" type="file" multiple accept="image/webp, image/jpeg, image/png">
+      <button type="submit">Upload</button>
+    </form>
+    <p>
+      <strong>Uploading status:</strong>
+      <span id="statusMessage">Nothing's been uploaded</span>
+    </p>
+    <button type="submit" class="btn">Save</button>
+    <button type="button" class="btn cancel" onclick="closeAdditionalInfo()">Close</button>
+   </form>
+    <script src="GuidedReport.js"></script>
+</div>
+
+<script>
+  function openGeneralInfo() {
+  document.getElementById("generalInformation").style.display = "block";
+}
+
+function openImpact() {
+  document.getElementById("impactInformation").style.display = "block";
+}
+
+function openStaff() {
+  document.getElementById("staffInformation").style.display = "block";
+}
+
+function openAdditionalInfo() {
+  document.getElementById("additionalInformation").style.display = "block";
+}
+
+  function closeGeneralInfo() {
+  document.getElementById("generalInformation").style.display = "none";
+}
+
+function closeImpact() {
+  document.getElementById("impactInformation").style.display = "none";
+}
+
+function closeStaff() {
+  document.getElementById("staffInformation").style.display = "none";
+}
+
+function closeAdditionalInfo() {
+  document.getElementById("additionalInformation").style.display = "none";
+}
+
+// Stuff for The Button
+
+
+</script>
+
+</body>
+<script src="Js/GuidedReport.js"></script>
+</html>

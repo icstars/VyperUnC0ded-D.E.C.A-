@@ -1,0 +1,71 @@
+button.neumorphic {
+  container-type: inline-size;
+  aspect-ratio: 0.9/0.85;
+  border: 0.1rem solid;
+  border-radius: 1rem;
+  color: hsl(0, 0%, 100%);
+  background: #0039f4;
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+
+  --shadow:
+    -.5rem -.5rem 1rem hsl(0 0% 100% / .75),
+    .5rem .5rem 1rem hsl(0 0% 50% / .5);
+  box-shadow: var(--shadow);
+  outline: none;
+  transition: all 0.1s;
+
+  &:hover, &:focus-visible {
+    color: hsl(0, 0%, 0%);
+    scale: 1.1
+  }
+  &:active, &.active{
+    box-shadow:
+      var(--shadow),
+      inset .5rem .5rem 1rem hsl(0 0% 50% / .5),
+      inset -.5rem -.5rem 1rem hsla(251, 84%, 22%, 0.75);
+    color: hsl(176, 80%, 50%);
+    > i { font-size: 10cqi};
+    > span { font-size: 14cqi};
+  }
+
+  >i {
+    font-size: 5cqi;
+  }
+  > span {
+    font-family: system-ui, sans-serif;
+    font-size: 16cqi;
+  }
+}
+
+body {
+  background-color: #ffffff;
+  padding: 2rem;
+}
+h1 {
+  text-align: center;
+  color: hsl(0, 0%, 100%);
+  font-family: system-ui, sans-serif;
+  font-size: 3rem;
+}
+.buttons {
+  display: grid;
+  width: min(75rem, 100%);
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr));
+  gap: 2rem;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  background-image: url("Images/background2.webp");
+  background-size: cover;
+  flex-direction: column;
+  margin: 0;
+}

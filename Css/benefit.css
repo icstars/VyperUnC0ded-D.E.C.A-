@@ -1,0 +1,22 @@
+button:hover {
+    background-color: #bed4d4;
+  } /*when you hover over the button it changes the color */
+  .banner {
+    background-color: #0039f4; /* Blue background */
+    color: white; /* White text */
+    text-align: center; /* Centered text */
+    padding: 4em; /* Some padding */
+  }
+  .info-container {
+    position: relative;
+  }
+  
+  .info-box {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #f1c40f;
+    color: #333;
+    padding: 10px;
+  }

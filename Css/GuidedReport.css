@@ -1,0 +1,83 @@
+
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: center;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+
+  }
+.form-container .btn {
+    background-color: #1067e8;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+.formbuttons {
+    list-style: none;
+}
+.openbutton {
+    padding: auto;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: center;
+    width: 90px;
+    height: 90px;
+    background: #1182df;
+    container-type: inline-size;
+    border: 0.1rem solid;
+    border-radius: 1rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: hsl(0, 0%, 0%); 
+    text-orientation: center;
+    display: grid;
+    gap: 1rem;
+  
+  }
+
+  .banner-button {
+    text-align: center;
+    border-radius: 50px;
+    background-color: #0039f4; /* Blue*/
+    border: none;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    margin: 5px 5px;
+    cursor: pointer;
+    }
+    
+  .banner-button:hover {
+    background-color: #094276;
+     }
+
+  .banner {
+    /* Whatever width and height seems good for the card within the banner space */
+    flex: 1 1 auto;
+    background: linear-gradient(45deg,#0575e6,#00f260);
+    color: white;
+    padding: 5rem;
+    font-family: Segoe UI;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    
+    /* Explicitly specify relative position so glow::before binds to it as an absolute pseudo element */
+    position: relative;
+}
+
+

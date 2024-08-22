@@ -1,0 +1,18 @@
+/* General styling for the entire page */
+body {
+	font-family: Arial, sans-serif;
+	background-color: rgb(255, 255, 255);
+	margin: 0;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background-image: url("Images/background2.webp");
+    background-size: cover;
+    flex-direction: column;
+    margin: 0;
+}
+

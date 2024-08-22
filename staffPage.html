@@ -1,0 +1,81 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Staff Page</title>
+        <link rel ="stylesheet" href ="Css/button.css">
+        <style>
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+
+            .container {
+                width: 1250px;
+                height: 500px;
+                display: flex;
+
+                /* A little padding to make sure the glow is not occluded */
+                padding: 30px;
+            }
+
+            .banner {
+                /* Whatever width and height seems good for the card within the banner space */
+                flex: 1 1 auto;
+                background: linear-gradient(45deg,#0575e6,#00f260);
+                color: white;
+                padding: 5rem;
+                font-family: Segoe UI;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                border-radius: 18px;
+
+                /* Explicitly specify relative position so glow::before binds to it as an absolute pseudo element */
+                position: relative;
+            }
+
+            .glow::before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background: linear-gradient(45deg,#0575e6,#00f260);
+                z-index: -1;
+                filter: blur(20px);
+            }
+
+            .text {
+                text-align: center;
+                font-size: 70x;
+            }
+        </style>
+    </head>
+    <body>
+      <button onclick="window.history.back()">&laquo; sign out</button>
+        <div class="container">
+            <div  class="banner glow">
+              <p style="font-size:70;">Welcome Staff</p>
+            </div>
+        </div>
+      <div>
+        <a href="calendar.html">
+          <button type="button" style="float: left;">
+            <img src="AltImage/Calendar-removebg-preview.png" width="50" height="50">
+          </button>
+          </a>
+          <a href="ReportPage.html">
+            <button type="button" style="float: left;">
+              <img src="AltImage/Add-File-removebg-preview.png" width="50" height="50">
+            </button>
+            </a>
+            <a href="Message.html">
+              <button type="button"  onclick="" style="float: left;">
+                <img src="AltImage/Message-removebg-preview.png" width="50" height="50">
+              </button>
+              </a>
+      </div>
+    </body>
+</html>

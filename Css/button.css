@@ -1,0 +1,82 @@
+button {
+  text-align: center;
+    border-radius: 50px;
+    background-color: #0039f4; /* Blue*/
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    margin: 5px 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #094276;
+}
+
+  /* General styling for the entire page */
+body {
+	font-family: Arial, sans-serif;
+	background-color: rgb(255, 255, 255);
+	margin: 0;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    background-image: url("Images/background2.webp");
+    background-size: cover;
+    flex-direction: column;
+    margin: 0;
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+  }
+
+  .container {
+      width: 1250px;
+      height: 500px;
+      display: flex;
+
+      /* A little padding to make sure the glow is not occluded */
+      padding: 30px;
+  }
+
+  .banner {
+      /* Whatever width and height seems good for the card within the banner space */
+      flex: 1 1 auto;
+      background: linear-gradient(45deg,#0575e6,#00f260);
+      color: white;
+      padding: 5rem;
+      font-family: Segoe UI;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 18px;
+
+      /* Explicitly specify relative position so glow::before binds to it as an absolute pseudo element */
+      position: relative;
+  }
+
+  .glow::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(45deg,#0575e6,#00f260);
+      z-index: -1;
+      filter: blur(20px);
+  }
+
+  .text {
+      text-align: center;
+      font-size: 70x;
+  }
+ 
+}
